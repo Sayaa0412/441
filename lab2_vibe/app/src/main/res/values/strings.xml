@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">VibeCodeChatter</string>
+    <string name="main_title">VibeCodeChatter</string>
+    <string name="post_title">Post</string>
+    <string name="username_label">Username</string>
+    <string name="message_label">Message</string>
+    <string name="send_button">Send</string>
+    <string name="field_required">Required</string>
+    <string name="empty_state">No messages yet. Pull to refresh.</string>
+    <string name="compose_message">New post</string>
+    <string name="back">Back</string>
+    <string name="load_error">Unable to load messages.</string>
+    <string name="send_error">Unable to send message.</string>
+</resources>
+
