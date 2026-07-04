@@ -2,33 +2,100 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ConstraintLayout"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".PostActivity">
 
-    <TextView
-        android:id="@+id/usernameTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="@string/username"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/usernameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Username"
+            android:inputType="text"
+            android:text="@string/username"
+            tools:ignore="LabelFor" />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send"
+            android:enabled="true" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/messageTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:gravity="start|top"
+        android:layout_marginTop="8dp"
+        android:minLines="4"
+        android:gravity="top"
+        android:hint="Message"
         android:inputType="textMultiLine"
         android:text="@string/message"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        tools:ignore="LabelFor" />
+
+    <!-- 三个按钮:位于 message 下方右侧,顶对齐在同一水平线 -->
+    <ImageButton
+        android:id="@+id/albumButton"
+        android:contentDescription="@string/album"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageTextView"
+        android:background="@drawable/border"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <ImageButton
+        android:id="@+id/cameraButton"
+        android:contentDescription="@string/camera"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/albumButton"
+        app:layout_constraintTop_toTopOf="@+id/albumButton"
+        android:background="@drawable/border"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <ImageButton
+        android:id="@+id/videoButton"
+        android:contentDescription="@string/video"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/cameraButton"
+        app:layout_constraintTop_toTopOf="@+id/albumButton"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@android:drawable/presence_video_online" />
+
+    <!-- 预览图:位于 message 下方左侧,右侧紧贴按钮;固定 200dp 高度,不拉伸到屏幕底部 -->
+    <ImageView
+        android:id="@+id/previewImage"
+        android:contentDescription="@string/preview"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toBottomOf="@+id/messageTextView"
+        app:layout_constraintStart_toStartOf="@+id/messageTextView"
+        app:layout_constraintEnd_toStartOf="@+id/videoButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

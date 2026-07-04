@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config>
-        <domain includeSubdomains="true">8.130.144.119</domain>
+        <domain includeSubdomains="true">115.29.229.247</domain>
         <trust-anchors>
             <certificates src="user"/>
         </trust-anchors>
