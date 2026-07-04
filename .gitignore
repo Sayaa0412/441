@@ -343,3 +343,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Project test files
+project_test/
